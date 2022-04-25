@@ -1,12 +1,16 @@
 import { BsTrashFill } from 'react-icons/bs';
 
-const Note = ({ id, text, date }) => {
+const Note = ({ id, text, date, handleDeleteNote }) => {
     return (
         <div className="note">
             <span>{text}</span>
             <div className="note-footer">
                 <small>{date}</small>
-                <BsTrashFill className="delete-icon" size="1.25em"/>
+            <BsTrashFill 
+                onClick={()=> handleDeleteNote(id)}
+                className="delete-icon"
+                size="1.25em"
+            />
             </div>
         </div>
     );

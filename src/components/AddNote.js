@@ -16,7 +16,7 @@ const AddNote = ({ handleAddNote }) => {
             handleAddNote(noteText);
             setNoteText('');
         }
-        window.alert("Nie można stworzyć pustej notatki");
+        else {window.alert("Nie można stworzyć pustej notatki")};
     };
 
     return(
