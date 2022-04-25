@@ -2,9 +2,13 @@ import { useState } from "react";
 
 const AddNote = ({ handleAddNote }) => {
     const [noteText, setNoteText] = useState('');
+    const characterLimit = 250;
 
     const handleChange = (event) => {
-        setNoteText(event.target.value);
+        if(characterLimit - event.target.value.length >= 0) {
+            setNoteText(event.target.value);
+        }
+        else {window.alert("Przekroczyłeś limit znaków")};
     };
 
     const handleSaveClick = () => {
@@ -25,7 +29,7 @@ const AddNote = ({ handleAddNote }) => {
          onChange={handleChange}
         ></textarea>
         <div className="note-footer">
-            <small>Pozostało 250 znaków</small>
+            <small>Pozostało {characterLimit - noteText.length} znaków</small>
             <button className="save" onClick={handleSaveClick}>Zapisz</button>
         </div>
     </div>
